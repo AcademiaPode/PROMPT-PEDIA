@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Paleta Tecnológica Oscura */
+    --background: 220 20% 12%; /* Azul grisáceo muy oscuro */
+    --foreground: 210 30% 95%; /* Blanco hueso/gris muy claro para texto principal */
+
+    --card: 220 20% 18%; /* Ligeramente más claro que el fondo, para cards */
+    --card-foreground: 210 30% 90%; /* Texto para cards */
+
+    --popover: 220 20% 15%; /* Para popovers, similar al card */
+    --popover-foreground: 210 30% 90%;
+
+    /* Primario: Cian brillante para acciones principales y botones */
+    --primary: 180 70% 50%; /* Cian */
+    --primary-foreground: 180 80% 10%; /* Texto oscuro para contraste sobre cian */
+
+    /* Secundario: Gris medio para acciones secundarias */
+    --secondary: 220 15% 40%; /* Gris medio azulado */
+    --secondary-foreground: 210 30% 90%; /* Texto claro sobre secundario */
+
+    --muted: 220 15% 25%; /* Para texto o elementos menos importantes */
+    --muted-foreground: 220 15% 65%; /* Texto para muted, más claro */
+
+    /* Acento: Púrpura eléctrico para resaltados, focus, hovers */
+    --accent: 270 70% 60%; /* Púrpura */
+    --accent-foreground: 270 70% 95%; /* Texto muy claro para contraste sobre púrpura */
+
+    --destructive: 0 60% 50%; /* Rojo para acciones destructivas */
+    --destructive-foreground: 0 0% 98%; /* Texto claro sobre destructivo */
+
+    --border: 220 20% 30%; /* Bordes sutiles */
+    --input: 220 20% 16%; /* Fondo para inputs, ligeramente diferente al card */
+    --ring: 180 70% 55%; /* Cian un poco más oscuro para anillos de foco */
+
+    --chart-1: 180 70% 50%; /* Cian */
+    --chart-2: 270 70% 60%; /* Púrpura */
+    --chart-3: 120 60% 50%; /* Verde neón */
+    --chart-4: 30 80% 60%;  /* Naranja */
+    --chart-5: 210 70% 60%; /* Azul claro */
+    
+    --radius: 1rem; /* 16px para bordes redondeados */
+
+    /* Sidebar specific colors - adaptados a la nueva paleta oscura */
+    --sidebar-background: 220 20% 10%; /* Aún más oscuro para el sidebar */
+    --sidebar-foreground: 210 30% 85%;
+    --sidebar-primary: 180 70% 50%; /* Cian */
+    --sidebar-primary-foreground: 180 80% 10%;
+    --sidebar-accent: 270 60% 50%; /* Púrpura más oscuro para acento de sidebar */
+    --sidebar-accent-foreground: 270 60% 90%;
+    --sidebar-border: 220 20% 25%;
+    --sidebar-ring: 180 70% 55%;
+  }
+
+  .dark {
+    /* Las variables de :root ya definen el tema oscuro por defecto.
+       Esta sección .dark se mantiene por si se quisiera implementar un tema claro específico en el futuro,
+       pero por ahora, :root es el tema oscuro principal. */
+    --background: 220 20% 12%;
+    --foreground: 210 30% 95%;
+
+    --card: 220 20% 18%;
+    --card-foreground: 210 30% 90%;
+
+    --popover: 220 20% 15%;
+    --popover-foreground: 210 30% 90%;
+
+    --primary: 180 70% 50%;
+    --primary-foreground: 180 80% 10%;
+
+    --secondary: 220 15% 40%;
+    --secondary-foreground: 210 30% 90%;
+
+    --muted: 220 15% 25%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 270 70% 60%;
+    --accent-foreground: 270 70% 95%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 20% 30%;
+    --input: 220 20% 16%;
+    --ring: 180 70% 55%;
+    
+    --chart-1: 180 70% 50%;
+    --chart-2: 270 70% 60%;
+    --chart-3: 120 60% 50%;
+    --chart-4: 30 80% 60%;
+    --chart-5: 210 70% 60%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 210 30% 85%;
+    --sidebar-primary: 180 70% 50%;
+    --sidebar-primary-foreground: 180 80% 10%;
+    --sidebar-accent: 270 60% 50%;
+    --sidebar-accent-foreground: 270 60% 90%;
+    --sidebar-border: 220 20% 25%;
+    --sidebar-ring: 180 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Aplicar una transición suave a los cambios de color de fondo */
+    @apply transition-colors duration-300;
+  }
+  /* Estilos para glassmorphism sutil en cards (opcional, se puede aplicar selectivamente) */
+  .glassmorphism-card {
+    @apply bg-card/70 backdrop-blur-md border-white/20;
+  }
+}
+
+/* Animaciones sutiles para hover en botones y cards */
+@layer components {
+  .btn-subtle-hover {
+    @apply transition-all duration-200 ease-in-out;
+    @apply hover:shadow-lg hover:-translate-y-0.5;
+  }
+  .card-subtle-hover {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-2xl hover:border-accent;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+  .animate-slideInUp {
+    animation: slideInUp 0.7s ease-out forwards;
+  }
+  .animate-slideInLeft {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+   .animate-suggestion-enter {
+    animation: suggestion-enter 0.5s ease-out forwards;
+  }
+  .animate-suggestion-exit {
+    animation: suggestion-exit 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes suggestion-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes suggestion-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
