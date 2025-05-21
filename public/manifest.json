@@ -1,0 +1,24 @@
+{
+  "name": "PP-IA",
+  "short_name": "PP-IA",
+  "description": "Genera prompts de IA de alta calidad con facilidad. Potencia tu creatividad y productividad con nuestra plataforma avanzada.",
+  "icons": [
+    {
+      "src": "https://i.imgur.com/IUHN3Hs.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#1a1a1a",
+  "background_color": "#0d0d0d",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait"
+}
